@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = '/api';
+const API_URL = 'https://job-portal-server-4ar8.onrender.com/api';
 
 // Create axios instance with auth header
 const api = axios.create({
@@ -20,7 +20,7 @@ export const jobService = {
   // Get all jobs with filters
   getJobs: async (filters = {}) => {
     const params = new URLSearchParams();
-    Object.keys(filters).forEach(key => {
+    Object.keys(filters).forEach((key) => {
       if (filters[key]) {
         params.append(key, filters[key]);
       }
@@ -63,4 +63,4 @@ export const jobService = {
     const response = await api.delete(`/jobs/${id}`);
     return response.data;
   },
-}; 
+};
